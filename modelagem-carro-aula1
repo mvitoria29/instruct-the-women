@@ -1,0 +1,39 @@
+class carro:
+  #atributos
+  def __init__(self):
+    self.ligado = False
+    self.cor = 1
+    self.modelo = 1
+    self.velocidade = 0
+    self.velocidade_min = 0
+    self.velocidade_max = 100
+  #métodos
+  def ligar(self):
+    self.ligado = True
+  def desligar(self):
+    self.ligado = False
+  def acelerar(self):
+    if not self.ligado:
+      return
+    if self.velocidade < self.velocidade_max:
+      self.velocidade += 10
+  def desacelerar(self):
+    if not self.ligado:
+      return
+    if self.velocidade > self.velocidade_min:
+      self.velocidade -= 10
+  def __str__(self):
+    return f'carro - ligado{self.ligado} - cor{self.cor} - modelo{self.modelo} - velocidade{self.velocidade}'
+
+#instância da classe carro
+meu_carro = carro()
+#fazer carro andar
+meu_carro.ligar()
+meu_carro.acelerar()
+print('meu carro está ligado? {}'.format(meu_carro.ligado))
+print('qual é a velocidade do meu carro?  {}'.format(meu_carro.velocidade))
+
+#fazer carro parar
+meu_carro.desacelerar()
+meu_carro.desligar()
+print('meu carro está ligado?{}'.format(meu_carro.ligado))
